@@ -26,7 +26,7 @@ class ProductController extends Controller
             'product_name'=>'required|string|max:255',
             'product_description'=>'required|string',
             'product_price'=>'required|numeric',
-            'prodcut_contact_person'=>'required|numeric',
+            'prodcut_contact_person'=>'required|string|max:15',
         ]);
 
         $product = Product::create($validate);
@@ -43,7 +43,7 @@ class ProductController extends Controller
             'product_name'=>'sometimes|required|string|max:255',
             'product_description'=>'sometimes|required|string',
             'product_price'=>'sometimes|required|numeric',
-            'product_contact_person'=>'sometimes|required|numeric',
+            'product_contact_person'=>'sometimes|required|string|max:15',
         ]);
 
         $product->update($validated);
