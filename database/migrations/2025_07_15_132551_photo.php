@@ -11,19 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('photo', function(Blueprint $table){
+        Schema::create('photos', function(Blueprint $table){
             $table->engine = 'InnoDB';
+            $table->id();
             $table->string('photo_name');
-            $table->string('photo_description');
+            $table->text('photo_description')->nullable();
             $table->date('photo_date');
             $table->unsignedBigInteger('event_id')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
             $table->unsignedBigInteger('blog_id')->nullable();
+            $table->timestamps();
 
-            $table->foreign('event_id')->references('id')->on('event')->onDelete('cascade');
-            $table->foreign('product_id')->references('id')->on('product')->onDelete('cascade');
-            $table->foreign('blog_id')->references('id')->on('blog')->onDelete('cascade');
-
+            $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');
+            $table->foreign('product_id')->references('id')->on('products')->onDelete('cascade');
+            $table->foreign('blog_id')->references('id')->on('blogs')->onDelete('cascade');
+            
         });
     }
 

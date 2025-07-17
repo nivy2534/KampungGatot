@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('blog', function(Blueprint $table){
+        Schema::create('blogs', function(Blueprint $table){
             $table->engine = 'InnoDB';
             $table->id();
+            $table->string('blog_name');
             $table->text('blog_description');
             $table->date('blog_date');
             $table->timestamp('created_at');
