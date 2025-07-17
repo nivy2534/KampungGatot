@@ -27,7 +27,7 @@ class PhotoController extends Controller
 
     public function update(Request $request, $id){
         $photo=Photo::find($id);
-        if (!$photo) return response()->json(['message' => 'Photo not found'], 404);
+        if (!$photo) return response()->json(['message' => 'Foto tidak ditemukan'], 404);
         
         $photo->update($request->all());
         return response()->json($photo);
@@ -35,9 +35,9 @@ class PhotoController extends Controller
 
     public function destroy($id){
         $photo = Photo::find($id);
-        if(!$photo) return response()->json(['message' => 'Photo not found'], 404);
+        if(!$photo) return response()->json(['message' => 'Foto tidak ditemukan'], 404);
     
         $photo->delete();
-        return response()->json(['message' => 'Photo deleted']);
+        return response()->json(['message' => 'Foto tidak ditemukan']);
     }
 }
